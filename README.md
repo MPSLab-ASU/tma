@@ -48,6 +48,10 @@ Getting Started > About Application Deployment >
 Deployment Product Terms in the MathWorks Documentation 
 Center.
 
+Contact Us
+For any questions or comments on TMA development, please email us at cmlasu@gmail.com
+
+CML's Timing for Cyber-Physical Systems Webpage - http://aviral.lab.asu.edu/timing-for-cyber-physical-systems/
 
 
 
