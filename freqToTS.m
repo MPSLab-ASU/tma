@@ -6,42 +6,37 @@ function freqToTS(opID, theTree,samplingTime)
 %     
     theNodes = nnodes(operatorSubTree);
     s = '';
-    totalLStr = '';
+    totalFStr = '';
     disp(operatorSubTree.tostring);
      
-    for i=1:theNodes
-        disp(i)
-        disp(operatorSubTree.get(i));
-    end
-%         lStr =  operatorSubTree.get(12);
-%       
+%     for i=1:theNodes
+%         disp(i)
+%         disp(operatorSubTree.get(i));
+%     end
+        fStr =  operatorSubTree.get(8);
 %         
-%         
-%         l = str2double( lStr );
-%         toleranceString = operatorSubTree.get(11);
-%         toleranceValue  = str2double( toleranceString );
-%         
-%        
-%         
-%         if (operatorSubTree.get(1) == '<')
-%             totalL = ((l - toleranceValue)/samplingTime) + 1;
-%             totalLStr =  string(totalL);
-%         end
-%            
-% %       
-%          if (operatorSubTree.get(1) == '>')
-%             totalL = ((l + toleranceValue)/samplingTime) - 1;
-%             totalLStr =  string(totalL);
-%            
-%          end
-%     
-%         s = strcat('T','(',operatorSubTree.get(9),operatorSubTree.get(8),operatorSubTree.get(10),')','-'...
-%             ,'T','(',operatorSubTree.get(5),operatorSubTree.get(4),operatorSubTree.get(6),')',operatorSubTree.get(1),totalLStr);
-%         
-%         fileID = fopen('convertedConstraints.txt','a');
-%         fprintf(fileID,s);
-%         fprintf(fileID,newline);
-%         fclose(fileID);
+        f = str2double( fStr );
+        toleranceString = operatorSubTree.get(7);
+        toleranceValue  = str2double( toleranceString );
+        
+        if (operatorSubTree.get(1) == '<')
+            totalF = (1/samplingTime*(f+toleranceValue)) + 1;
+            totalFStr =  string(totalF);
+        end
+           
+         if (operatorSubTree.get(1) == '>')
+            totalF = (1/samplingTime*(f-toleranceValue)) - 1;
+            totalFStr =  string(totalF);
+           
+         end
+    
+        s = strcat('T2','(',operatorSubTree.get(5),operatorSubTree.get(4),operatorSubTree.get(6),')','-'...
+            ,'T1','(',operatorSubTree.get(5),operatorSubTree.get(4),operatorSubTree.get(6),')',operatorSubTree.get(1),totalFStr);
+        
+        fileID = fopen('convertedConstraints.txt','a');
+        fprintf(fileID,s);
+        fprintf(fileID,newline);
+        fclose(fileID);
    
     
 end

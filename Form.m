@@ -108,7 +108,7 @@ function runButton_Callback(hObject, eventdata, handles)
 % hObject    handle to runButton (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-systemSamplingTime = 0.02;
+systemSamplingTime = 0.00002;
 signalAddress = get(handles.signalFileAddress,'String');
 
 timingContstraintContent = get(handles.timingConstraint,'String');
